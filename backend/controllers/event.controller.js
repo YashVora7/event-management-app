@@ -156,8 +156,35 @@ const eventRSVP = async (req, res) => {
     }
 };
 
+const eventRSVPStatus = async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        let { id } = req.params;
+
+        let event = await Event.findById(id)
+
+        if(!event){
+            return res.status(404).send("Event not found")
+        }
+
+        let isRSVPed = await event.attendees.includes(userId)
+
+        if(isRSVPed){
+            return res.status(201).send("You are RSVPed")
+        }
+
+        if(!isRSVPed){
+            return res.status(400).send("You aren't RSVPed")
+        }
+
+    } catch (error) {
+        res.status(500).send("Error checking RSVP status");
+    }
+};
+
+module.exports = { eventRSVPStatus };
 
 
 
 
-module.exports = { eventCreate, eventGetAll, eventGetById, eventUpdate, eventDelete, eventRSVP };
+module.exports = { eventCreate, eventGetAll, eventGetById, eventUpdate, eventDelete, eventRSVP, eventRSVPStatus };

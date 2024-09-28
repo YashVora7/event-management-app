@@ -6,7 +6,8 @@ const {
     eventGetById,
     eventUpdate,
     eventDelete,
-    eventRSVP
+    eventRSVP,
+    eventRSVPStatus
 } = require("../controllers/event.controller");
 const auth = require("../middleware/auth");
 
@@ -29,10 +30,12 @@ eventRoute.get("/",auth, eventGetAll);
 
 eventRoute.get("/:id",auth, eventGetById);
 
-eventRoute.put("/:id",auth, eventUpdate);
+eventRoute.patch("/:id",auth, eventUpdate);
 
 eventRoute.delete("/:id",auth, eventDelete);
 
 eventRoute.post("/rsvp/:id", auth, eventRSVP);
+
+eventRoute.get("/rsvp_status/:id", auth, eventRSVPStatus);
 
 module.exports = eventRoute;

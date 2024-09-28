@@ -1,5 +1,4 @@
 const express = require("express")
-const nodemailer = require("nodemailer")
 const connect = require("./config/db")
 const userRoute = require("./routes/user.route")
 const eventRoute = require("./routes/event.route")

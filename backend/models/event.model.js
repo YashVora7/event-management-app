@@ -5,7 +5,7 @@ const eventSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
-    date: { type: String, required: true },
+    date: { type: Date, required: true },
     location: { type: String, required: true },
     maxAttendees: { type: Number, required: true },
     image: { type: String },
