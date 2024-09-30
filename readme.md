@@ -28,6 +28,13 @@ Image Upload: Users can also upload image of event. The app uses **Node.js**, **
 
 ## API Endpoints:
 
+### User Routes:
+
+| Method | Endpoint                         | Description                        |
+|--------|----------------------------------|------------------------------------|
+| **POST**    | `/user/login`                    | Login User                      |
+| **POST**     | `/user/register`                    | Register User                  |
+
 ### Event Routes:
 
 | Method | Endpoint                         | Description                        |
